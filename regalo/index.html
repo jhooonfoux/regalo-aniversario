@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para mi amor ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f8cdda, #f1a7c5);
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 80px 20px;
+      color: #fff;
+      animation: fadeIn 2s ease;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    section {
+      background: #fff;
+      margin: 25px;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      animation: fadeUp 1.5s ease;
+    }
+
+    h2 {
+      color: #e75480;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 20px;
+      margin-top: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .contador {
+      font-size: 1.3rem;
+      color: #e75480;
+      font-weight: bold;
+    }
+
+    button {
+      background: #e75480;
+      border: none;
+      color: #fff;
+      padding: 15px 25px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background: #d6436f;
+    }
+
+    footer {
+      padding: 40px;
+      color: #fff;
+      font-size: 1.1rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Corazones */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.7);
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Feliz 4 meses, mi niña hermosa ❤️</h1>
+    <p>Aunque hoy no esté contigo, hice esto para que me sientas cerquita</p>
+  </header>
+
+  <section>
+    <h2>Nuestra historia</h2>
+    <p>
+      Desde el día que te pedí que fueras mi novia, supe que estaba tomando
+      una de las decisiones más bonitas de mi vida.
+      Poco a poco te fuiste convirtiendo en alguien muy importante para mí.
+    </p>
+  </section>
+
+  <section>
+    <h2>Lo que siento por ti</h2>
+    <p>
+      Me encantas tal y como eres, con todo y tus detalles.
+      Tu sonrisa, tu forma de hablar, tu manera de hacerme sentir tranquilo.
+      Gracias por estos meses tan lindos.
+    </p>
+  </section>
+
+  <section class="gallery">
+    <h2>La más linda 💖</h2>
+    <img src="foto2.jpeg" alt="La más linda">
+  </section>
+
+  <section>
+    <h2>Una carta para ti 💌</h2>
+    <p>
+      Esto no es solo una página, es una pequeña parte de todo lo que siento por ti.
+      Gracias por estar en mi vida y por elegirme cada día.
+    </p>
+  </section>
+
+  <section>
+    <h2>Tiempo juntos ❤️</h2>
+    <p class="contador" id="contador"></p>
+  </section>
+
+  <section>
+    <h2>Un botón solo para ti</h2>
+    <button onclick="mostrarMensaje()">Presiona aquí 💕</button>
+    <p id="mensajeSecreto"></p>
+  </section>
+
+  <footer>
+    <p>
+      Con todo mi amor,<br>
+      <strong>Jhon</strong> ❤️
+    </p>
+  </footer>
+
+  <script>
+    // CONTADOR DESDE EL 2 DE NOVIEMBRE
+    const inicio = new Date(2025, 10, 2);
+
+    function actualizarContador() {
+      const ahora = new Date();
+      const diff = ahora - inicio;
+
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diff / (1000 * 60)) % 60);
+
+      document.getElementById("contador").innerText =
+        `Llevamos ${dias} días, ${horas} horas y ${minutos} minutos juntos 💖`;
+    }
+
+    actualizarContador();
+    setInterval(actualizarContador, 60000);
+
+    function mostrarMensaje() {
+      document.getElementById("mensajeSecreto").innerText =
+        "Eres lo mejor que me ha pasado ❤️";
+    }
+
+    // Corazones flotando
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.innerText = "❤️";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }, 500);
+  </script>
+
+</body>
+</html>
